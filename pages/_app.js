@@ -10,7 +10,12 @@ const queryClient = new QueryClient();
 function MyApp({ Component, pageProps }) {
   const { global } = pageProps;
   if (global === null) {
-    return <ErrorPage statusCode={404} />;
+    return (
+      <>
+        <h1>TESTTTT</h1>
+        <ErrorPage statusCode={404} />
+      </>
+    );
   }
 
   return (
