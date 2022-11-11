@@ -9,9 +9,6 @@ const Universals = ({ global, pageData, preview, meta }) => {
   if (pageData === null) {
     return <ErrorPage statusCode={404} />;
   }
-  
-  console.log(meta);
-
   const blocks = delve(pageData, "attributes.blocks");
   return (
     <Layout global={global} pageData={pageData} meta={meta} type="pages" preview={preview}>
@@ -39,7 +36,6 @@ export async function getServerSideProps(context) {
       return handleRedirection(context.preview, null);
     }
     
-    console.log(json, 'jsonnnn');
     return {
       props: { pageData: json.data[0], meta: json.meta, preview: context.preview || null },
     };

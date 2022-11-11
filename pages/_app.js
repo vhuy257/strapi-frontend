@@ -10,12 +10,7 @@ const queryClient = new QueryClient();
 function MyApp({ Component, pageProps }) {
   const { global } = pageProps;
   if (global === null) {
-    return (
-      <>
-        <h1>TESTTTT</h1>
-        <ErrorPage statusCode={404} />
-      </>
-    );
+    return <ErrorPage statusCode={404} />;
   }
 
   return (
@@ -41,7 +36,6 @@ MyApp.getInitialProps = async (appContext) => {
     const globalData = await res.json();
     const globalDataAttributes = globalData.data.attributes;
     
-    console.log(globalData, 'globalData');
     return { ...appProps, pageProps: { global: globalDataAttributes } };
   } catch (error) {
     return { ...appProps };
