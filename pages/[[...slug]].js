@@ -6,13 +6,14 @@ import { getData, handleRedirection } from "../utils";
 import { getLocalizedParams } from "../utils/localize";
 
 const Universals = ({ global, pageData, preview, meta }) => {
-  if (pageData === null) {
-    return <ErrorPage statusCode={404} />;
-  }
+  // if (pageData === null) {
+  //   return <ErrorPage statusCode={404} />;
+  // }
   const blocks = delve(pageData, "attributes.blocks");
   return (
     <Layout global={global} pageData={pageData} meta={meta} type="pages" preview={preview}>
-      {blocks && <BlockManager blocks={blocks} />}
+      {/* {blocks && <BlockManager blocks={blocks} />} */}
+      <h1>Home page</h1>
     </Layout>
   );
 };
