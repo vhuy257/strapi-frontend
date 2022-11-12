@@ -1,19 +1,20 @@
 import delve from "dlv";
 import ErrorPage from "next/error";
+import PreviewBanner from "../components/global/PreviewBanner";
 import Layout from "../components/layout";
 import BlockManager from "../components/shared/BlockManager";
 import { getData, handleRedirection } from "../utils";
 import { getLocalizedParams } from "../utils/localize";
 
 const Universals = ({ global, pageData, preview, meta }) => {
-  // if (pageData === null) {
-  //   return <ErrorPage statusCode={404} />;
-  // }
+  if (pageData === null) {
+    // return <ErrorPage statusCode={404} />;
+    return <PreviewBanner />
+  }
   const blocks = delve(pageData, "attributes.blocks");
   return (
     <Layout global={global} pageData={pageData} meta={meta} type="pages" preview={preview}>
-      {/* {blocks && <BlockManager blocks={blocks} />} */}
-      <h1>Home page</h1>
+      {blocks && <BlockManager blocks={blocks} />}
     </Layout>
   );
 };
